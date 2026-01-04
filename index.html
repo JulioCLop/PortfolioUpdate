@@ -1,0 +1,1622 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Julio Lopez — Front-End Developer</title>
+  <meta name="description" content="High-tech portfolio of Julio Lopez, a front-end developer and Tri-tech founder. Case studies, work, and contact form." />
+  <meta name="robots" content="index,follow" />
+  <meta name="author" content="Julio Lopez" />
+  <meta name="theme-color" content="#070A12" />
+  <link rel="canonical" href="http://127.0.0.1:5500/index.html" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="icon" sizes="any" href="favicon.svg" />
+  <link rel="shortcut icon" href="favicon.svg" />
+  <link rel="mask-icon" href="favicon.svg" color="#42f5d4" />
+
+  <meta property="og:title" content="Julio Lopez — Front-End Developer" />
+  <meta property="og:description" content="High-tech portfolio of Julio Lopez, a front-end developer and Tri-tech founder. Case studies, work, and contact form." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="http://127.0.0.1:5500/index.html" />
+  <meta property="og:image" content="logo.svg" />
+  <meta property="og:site_name" content="Julio Lopez Portfolio" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Julio Lopez — Front-End Developer" />
+  <meta name="twitter:description" content="High-tech portfolio of Julio Lopez, a front-end developer and Tri-tech founder. Case studies, work, and contact form." />
+  <meta name="twitter:image" content="logo.svg" />
+  <style>
+    :root{
+      --bg:#070A12;
+      --bg2:#070b1b;
+      --card: rgba(255,255,255,.06);
+      --card2: rgba(255,255,255,.09);
+      --border: rgba(255,255,255,.14);
+
+      --text:#eaf0ff;
+      --muted: rgba(234,240,255,.72);
+      --muted2: rgba(234,240,255,.55);
+
+      --aqua:#42f5d4;
+      --mag:#a5f3fc;
+      --vio:#60a5fa;
+      --gold:#7dd3fc;
+      --good:#6ee7b7;
+      --bad:#f87171;
+
+      --shadow: 0 24px 70px rgba(0,0,0,.55);
+      --shadow2: 0 18px 40px rgba(0,0,0,.55);
+      --radius: 18px;
+      --radius2: 26px;
+
+      --max: 1180px;
+    }
+
+    *{ box-sizing:border-box }
+    html,body{ height:100% }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color: var(--text);
+      background: radial-gradient(1200px 700px at 15% 15%, rgba(66,245,212,.18), transparent 60%),
+                  radial-gradient(900px 600px at 80% 10%, rgba(165,243,252,.17), transparent 55%),
+                  radial-gradient(900px 600px at 75% 85%, rgba(96,165,250,.16), transparent 58%),
+                  linear-gradient(180deg, var(--bg), var(--bg2));
+      overflow-x:hidden;
+    }
+
+    /* subtle animated noise overlay */
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E");
+      mix-blend-mode: overlay;
+      opacity:.25;
+      animation: grain 10s steps(2) infinite;
+    }
+    @keyframes grain{
+      0%{ transform:translate3d(0,0,0) }
+      25%{ transform:translate3d(-2%, 1%,0) }
+      50%{ transform:translate3d(2%, -1%,0) }
+      75%{ transform:translate3d(-1%, -2%,0) }
+      100%{ transform:translate3d(0,0,0) }
+    }
+
+    a{ color:inherit; text-decoration:none }
+    .wrap{ max-width: var(--max); margin:0 auto; padding: 0 20px; }
+
+    /* NAV */
+    .nav{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(180deg, rgba(7,10,18,.82), rgba(7,10,18,.35));
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .nav-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 14px 0;
+      gap: 14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      font-weight:800; letter-spacing:.3px;
+    }
+    .brand-logo{
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      box-shadow: 0 0 18px rgba(66,245,212,.35);
+      display:block;
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:10px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      padding: 10px 12px;
+      border-radius: 999px;
+    }
+    .nav-links{
+      display:flex; gap: 10px; flex-wrap:wrap; justify-content:flex-end;
+    }
+    .nav-links a{
+      font-size: 13px;
+      color: var(--muted);
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: .2s ease;
+    }
+    .nav-links a:hover{
+      color: var(--text);
+      border-color: rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+    }
+
+    .cta{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      padding: 12px 14px;
+      border-radius: 999px;
+      font-weight: 800;
+      letter-spacing:.2px;
+      border: 1px solid rgba(255,255,255,.14);
+      background:
+        radial-gradient(100% 220% at 20% 20%, rgba(66,245,212,.22), transparent 55%),
+        radial-gradient(120% 220% at 85% 20%, rgba(165,243,252,.22), transparent 52%),
+        rgba(255,255,255,.06);
+      box-shadow: 0 10px 28px rgba(0,0,0,.35);
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+    .cta:hover{ transform: translateY(-1px); box-shadow: 0 16px 38px rgba(0,0,0,.48); border-color: rgba(255,255,255,.22) }
+    .cta .spark{
+      width:10px; height:10px; border-radius:50%;
+      background: var(--aqua);
+      box-shadow: 0 0 16px rgba(66,245,212,.75);
+    }
+
+    /* HERO */
+    .hero{
+      padding: 64px 0 34px;
+      position:relative;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 22px;
+      align-items:stretch;
+    }
+    @media (max-width: 980px){
+      .hero-grid{ grid-template-columns: 1fr; }
+    }
+
+    .panel{
+      border: 1px solid rgba(255,255,255,.12);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border-radius: var(--radius2);
+      box-shadow: var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+    .panel::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(700px 220px at 20% 0%, rgba(66,245,212,.22), transparent 60%),
+                  radial-gradient(700px 240px at 80% 0%, rgba(165,243,252,.20), transparent 58%),
+                  radial-gradient(800px 260px at 50% 100%, rgba(96,165,250,.16), transparent 60%);
+      opacity:.9;
+      pointer-events:none;
+      filter: blur(12px);
+    }
+    .panel > *{ position:relative; z-index:1 }
+
+    .hero-left{
+      padding: 26px;
+      min-height: 420px;
+    }
+    .kicker{
+      display:flex; gap:10px; align-items:center;
+      color: var(--muted);
+      font-size: 13px;
+      letter-spacing:.12em;
+      text-transform: uppercase;
+    }
+    .kicker .bar{
+      width: 28px; height: 2px;
+      background: linear-gradient(90deg, var(--aqua), var(--mag));
+      box-shadow: 0 0 16px rgba(165,243,252,.32);
+    }
+    h1{
+      margin: 12px 0 12px;
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1.02;
+      letter-spacing: -0.02em;
+    }
+    .gradient-text{
+      background: linear-gradient(90deg, var(--aqua), var(--mag), var(--vio));
+      -webkit-background-clip: text;
+      background-clip:text;
+      color:transparent;
+      text-shadow: 0 0 34px rgba(66,245,212,.11);
+    }
+
+    .sub{
+      color: var(--muted);
+      font-size: clamp(15px, 2vw, 18px);
+      line-height: 1.6;
+      max-width: 60ch;
+    }
+    .hero-actions{
+      display:flex; gap:12px; flex-wrap:wrap;
+      margin-top: 18px;
+      align-items:center;
+    }
+    .ghost{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding: 12px 14px;
+      border-radius: 999px;
+      font-weight:800;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.18);
+      color: var(--text);
+      transition: .2s ease;
+    }
+    .ghost:hover{ background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.22) }
+
+    .stats{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 18px;
+    }
+    @media (max-width: 560px){
+      .stats{ grid-template-columns: 1fr; }
+    }
+    .stat{
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.18);
+      border-radius: 16px;
+      padding: 14px 14px;
+    }
+    .stat .num{
+      font-size: 20px; font-weight: 900;
+      letter-spacing:-.02em;
+    }
+    .stat .lab{
+      margin-top: 4px;
+      font-size: 12px;
+      color: var(--muted2);
+      line-height:1.3;
+    }
+
+    /* right hero: terminal */
+    .hero-right{
+      padding: 18px;
+      display:flex;
+      flex-direction:column;
+      gap: 12px;
+      min-height: 420px;
+    }
+    .terminal{
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.26);
+      border-radius: 18px;
+      overflow:hidden;
+      box-shadow: var(--shadow2);
+      flex: 1;
+      display:flex; flex-direction:column;
+    }
+    .term-top{
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .dots{ display:flex; gap:7px; align-items:center; }
+    .dots span{ width:9px; height:9px; border-radius:50%; display:inline-block; opacity:.9 }
+    .dots .r{ background: #f87171 }
+    .dots .y{ background: #7dd3fc }
+    .dots .g{ background: #6ee7b7 }
+    .term-body{
+      padding: 14px 12px 18px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 12.5px;
+      line-height: 1.6;
+      color: rgba(234,240,255,.82);
+    }
+    .cmd{ color: rgba(66,245,212,.95) }
+    .out{ color: rgba(234,240,255,.72) }
+    .hl{ color: rgba(165,243,252,.92) }
+    .tagline{
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      border-radius: 18px;
+      padding: 14px;
+      color: var(--muted);
+      display:flex; gap:10px; align-items:flex-start;
+    }
+    .tagline b{ color: var(--text) }
+    .badge{
+      display:inline-flex; align-items:center;
+      font-size: 12px; font-weight: 900;
+      letter-spacing:.08em;
+      text-transform: uppercase;
+      color: rgba(7,10,18,.92);
+      background: linear-gradient(90deg, var(--aqua), var(--mag));
+      padding: 6px 10px;
+      border-radius: 999px;
+      box-shadow: 0 12px 30px rgba(0,0,0,.35);
+      flex: 0 0 auto;
+    }
+
+    /* SECTION BASE */
+    section{ padding: 44px 0; }
+    .sec-head{
+      display:flex; align-items:flex-end; justify-content:space-between;
+      gap: 14px; flex-wrap:wrap;
+      margin-bottom: 16px;
+    }
+    .sec-title{
+      font-size: 22px;
+      letter-spacing: -.02em;
+      margin: 0;
+    }
+    .sec-sub{
+      margin: 0;
+      color: var(--muted);
+      max-width: 70ch;
+      line-height:1.55;
+      font-size: 14px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 14px;
+    }
+
+    .card{
+      border: 1px solid rgba(255,255,255,.12);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: var(--shadow2);
+      overflow:hidden;
+      position:relative;
+    }
+    .card::after{
+      content:"";
+      position:absolute; inset:auto -20% -30% -20%;
+      height: 120px;
+      background: radial-gradient(260px 120px at 50% 50%, rgba(66,245,212,.18), transparent 70%);
+      transform: rotate(-6deg);
+      pointer-events:none;
+      opacity:.9;
+    }
+
+    /* FEATURE STRIP */
+    .features .card{ padding: 18px }
+    .feat{
+      display:flex; gap:12px;
+      align-items:flex-start;
+    }
+    .icon{
+      width: 40px; height: 40px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: radial-gradient(120% 120% at 30% 25%, rgba(165,243,252,.18), transparent 55%),
+                  radial-gradient(130% 130% at 70% 25%, rgba(66,245,212,.18), transparent 55%),
+                  rgba(0,0,0,.18);
+      display:grid; place-items:center;
+      box-shadow: 0 14px 30px rgba(0,0,0,.35);
+      flex: 0 0 auto;
+    }
+    .feat h3{ margin: 0 0 6px; font-size: 16px }
+    .feat p{ margin: 0; color: var(--muted); line-height:1.55; font-size: 13px }
+
+    /* PROJECTS */
+    .projects .card{
+      padding: 0;
+      display:flex; flex-direction:column;
+      min-height: 280px;
+    }
+    .proj-top{
+      padding: 16px;
+      display:flex; align-items:flex-start; justify-content:space-between; gap:10px;
+      border-bottom: 1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.18);
+    }
+    .proj-title{
+      margin:0;
+      font-size: 16px;
+      letter-spacing:-.01em;
+    }
+    .proj-meta{
+      margin-top: 6px;
+      color: var(--muted2);
+      font-size: 12px;
+      line-height:1.4;
+    }
+    .chips{
+      display:flex; flex-wrap:wrap; gap: 8px;
+      margin-top: 10px;
+    }
+    .chip{
+      font-size: 12px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.04);
+      color: rgba(234,240,255,.82);
+    }
+    .proj-body{
+      padding: 16px;
+      flex: 1;
+      display:flex; flex-direction:column; gap: 12px;
+    }
+    .proj-desc{
+      margin:0;
+      color: var(--muted);
+      line-height:1.6;
+      font-size: 13.5px;
+    }
+    .proj-foot{
+      padding: 14px 16px;
+      border-top: 1px solid rgba(255,255,255,.10);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+    }
+    .link{
+      display:inline-flex; gap:10px; align-items:center;
+      font-weight: 900;
+      letter-spacing:.2px;
+      color: var(--text);
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      transition: .2s ease;
+    }
+    .link:hover{ border-color: rgba(255,255,255,.24); transform: translateY(-1px) }
+    .arrow{ opacity:.9 }
+
+    /* CASE STUDIES */
+    .case{
+      display:flex; flex-direction:column; gap: 10px;
+    }
+    .case strong{ font-size: 14px }
+    .case ul{
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      line-height:1.6;
+      font-size: 13px;
+    }
+    .impact{
+      display:flex; flex-wrap:wrap; gap: 10px;
+      margin-top: 6px;
+    }
+    .impact .chip{
+      border-color: rgba(110,231,183,.25);
+      background: rgba(110,231,183,.08);
+    }
+
+    /* ABOUT */
+    .about-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    @media (max-width: 900px){
+      .about-grid{ grid-template-columns: 1fr; }
+    }
+    .about p{
+      color: var(--muted);
+      line-height:1.7;
+      font-size: 14px;
+      margin: 0;
+    }
+    .list{
+      display:grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .item{
+      display:flex; gap:10px; align-items:flex-start;
+      padding: 12px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.16);
+    }
+    .check{
+      width: 22px; height: 22px; border-radius: 8px;
+      background: rgba(110,231,183,.14);
+      border: 1px solid rgba(110,231,183,.25);
+      display:grid; place-items:center;
+      color: rgba(110,231,183,.95);
+      flex: 0 0 auto;
+      margin-top: 1px;
+    }
+
+    /* TESTIMONIALS */
+    .quote{
+      color: rgba(234,240,255,.86);
+      line-height:1.7;
+      font-size: 14px;
+      margin: 0;
+    }
+    .who{
+      margin-top: 10px;
+      color: var(--muted2);
+      font-size: 12.5px;
+    }
+    .stars{
+      color: var(--gold);
+      letter-spacing:.14em;
+      font-size: 12px;
+      margin-bottom: 8px;
+    }
+
+    /* CONTACT */
+    form{ display:grid; gap: 12px; }
+    .row{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    @media (max-width: 760px){
+      .row{ grid-template-columns: 1fr; }
+    }
+    label{
+      display:block;
+      font-size: 12px;
+      color: var(--muted2);
+      margin-bottom: 7px;
+      letter-spacing:.04em;
+      text-transform: uppercase;
+      font-weight: 900;
+    }
+    input, textarea, select{
+      width:100%;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.20);
+      color: var(--text);
+      outline:none;
+      box-shadow: inset 0 0 0 1px transparent;
+      transition: .18s ease;
+      font-size: 14px;
+    }
+    textarea{ min-height: 120px; resize: vertical }
+    input:focus, textarea:focus, select:focus{
+      border-color: rgba(110,231,183,.35);
+      box-shadow: 0 0 0 4px rgba(110,231,183,.12);
+    }
+    .help{
+      color: var(--muted2);
+      font-size: 12.5px;
+      line-height:1.5;
+      margin: 0;
+    }
+    .form-actions{
+      display:flex; align-items:center; gap: 12px; flex-wrap:wrap;
+      margin-top: 4px;
+    }
+    .status{
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .status.ok{ color: rgba(110,231,183,.92) }
+    .status.bad{ color: rgba(248,113,113,.92) }
+
+    /* MODAL */
+    body.modal-open{ overflow:hidden; }
+    .modal{
+      position:fixed;
+      inset:0;
+      display:grid;
+      place-items:center;
+      padding: 20px;
+      z-index:100;
+    }
+    .modal[hidden]{ display:none; }
+    .modal-backdrop{
+      position:absolute;
+      inset:0;
+      background: rgba(7,10,18,.72);
+      backdrop-filter: blur(6px);
+      opacity:0;
+      transition: opacity .2s ease;
+    }
+    .modal-panel{
+      position:relative;
+      z-index:1;
+      width: min(720px, 94vw);
+      border: 1px solid rgba(255,255,255,.14);
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+      border-radius: 22px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+      transform: translateY(8px) scale(.98);
+      opacity:0;
+      transition: transform .2s ease, opacity .2s ease;
+    }
+    .modal.show .modal-backdrop{ opacity:1; }
+    .modal.show .modal-panel{ transform: translateY(0) scale(1); opacity:1; }
+    .modal-close{
+      position:absolute;
+      top: 12px;
+      right: 12px;
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.45);
+      color: var(--text);
+      font-size: 20px;
+      line-height: 1;
+      cursor:pointer;
+    }
+    .modal-head{ padding-right: 44px; }
+    .modal-sub{
+      color: var(--muted);
+      margin: 6px 0 0;
+      line-height:1.6;
+      font-size: 14px;
+    }
+    .modal-steps{
+      display:grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .modal-step{
+      display:flex;
+      gap: 12px;
+      padding: 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.18);
+    }
+    .step-num{
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing:.14em;
+      color: var(--aqua);
+      padding-top: 2px;
+      min-width: 34px;
+    }
+    .modal-step p{
+      margin: 6px 0 0;
+      color: var(--muted);
+      line-height:1.55;
+      font-size: 13px;
+    }
+    .modal-actions{
+      display:flex;
+      gap: 12px;
+      flex-wrap:wrap;
+      margin-top: 16px;
+    }
+
+    /* FOOTER */
+    footer{
+      padding: 34px 0 46px;
+      color: var(--muted2);
+      font-size: 13px;
+    }
+    .foot{
+      display:flex; justify-content:space-between; gap: 12px; flex-wrap:wrap;
+      border-top: 1px solid rgba(255,255,255,.10);
+      padding-top: 18px;
+    }
+
+    /* reveal animations */
+    .reveal{ opacity:0; transform: translateY(10px); transition: .6s ease; }
+    .reveal.show{ opacity:1; transform: translateY(0); }
+
+    /* subtle parallax blob */
+    .blob{
+      position:absolute;
+      right: -160px;
+      top: -120px;
+      width: 520px;
+      height: 520px;
+      filter: blur(40px);
+      opacity:.45;
+      background: radial-gradient(circle at 30% 30%, rgba(66,245,212,.55), transparent 55%),
+                  radial-gradient(circle at 70% 35%, rgba(165,243,252,.55), transparent 55%),
+                  radial-gradient(circle at 55% 75%, rgba(96,165,250,.45), transparent 55%);
+      border-radius: 42% 58% 58% 42% / 45% 45% 55% 55%;
+      transform: translate3d(var(--mx,0), var(--my,0),0);
+      transition: transform .08s linear;
+      pointer-events:none;
+    }
+
+    /* small utility */
+    .col-4{ grid-column: span 4; }
+    .col-6{ grid-column: span 6; }
+    .col-8{ grid-column: span 8; }
+    .col-12{ grid-column: span 12; }
+    @media (max-width: 980px){
+      .col-4,.col-6,.col-8{ grid-column: span 12; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <div class="brand">
+        <img class="brand-logo" src="logo.svg" alt="Julio Lopez logo" />
+        <span>Julio Lopez</span>
+        <span class="pill" style="padding:8px 10px; font-size:12px; color: var(--muted);">
+           Front-End Developer
+        </span>
+      </div>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#work">Work</a>
+        <a href="#cases">Case Studies</a>
+        <a href="#about">Background</a>
+        <a href="#testimonials">Praise</a>
+        <a href="#contact" class="cta"><span class="spark"></span>Hire Me</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="blob" id="blob" aria-hidden="true"></div>
+
+      <div class="wrap hero-grid">
+        <div class="panel hero-left reveal">
+          <div class="kicker"><span class="bar"></span><span>Design-led engineering • conversion-first • performance-obsessed</span></div>
+
+          <h1>
+            I build <span class="gradient-text">web experiences</span><br/>
+            that feel expensive.
+          </h1>
+
+          <p class="sub">
+            I’m <b>Julio Lopez</b>, a front-end developer focused on building fast, modern web experiences.
+            I blend clean UI, performance, and thoughtful UX so your site looks premium and drives action.
+            Founder at <a href="http://127.0.0.1:5500/index.html">Tri-tech</a>, an umbrella brand for multiple tech ventures spanning product UX, web systems, and digital tools.
+          </p>
+
+          <div class="hero-actions">
+            <a class="cta" href="#contact"><span class="spark"></span>Start a Project</a>
+            <a class="ghost" href="#work">View My Work</a>
+            <a class="ghost" href="#" id="downloadResume">Download Resume</a>
+          </div>
+
+          <div class="stats" aria-label="Highlights">
+            <div class="stat">
+              <div class="num">10+ years</div>
+              <div class="lab">Front-end mastery across modern stacks & real-world constraints</div>
+            </div>
+            <div class="stat">
+              <div class="num">Performance-led</div>
+              <div class="lab">Core Web Vitals, Lighthouse, load time, accessibility—handled</div>
+            </div>
+            <div class="stat">
+              <div class="num">Conversion-focused</div>
+              <div class="lab">Design + UX patterns that drive action (not just “pretty”)</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel hero-right reveal">
+          <div class="terminal" aria-label="Terminal summary">
+            <div class="term-top">
+              <div class="dots" aria-hidden="true">
+                <span class="r"></span><span class="y"></span><span class="g"></span>
+              </div>
+              <div>julio@portfolio — ~/shipping-quality</div>
+            </div>
+            <div class="term-body" id="terminalText">
+              <div><span class="cmd">$</span> whoami</div>
+              <div class="out">Senior Front-End Developer • UI Engineer • Problem Solver</div>
+              <br/>
+              <div><span class="cmd">$</span> strengths --top</div>
+              <div class="out">- Pixel-perfect UI (<span class="hl">without</span> slowing down dev)</div>
+              <div class="out">- Fast sites (<span class="hl">Core Web Vitals</span> + real optimizations)</div>
+              <div class="out">- Clean systems (design tokens, components, docs)</div>
+              <div class="out">- Stakeholder-friendly (clear updates, no surprises)</div>
+              <br/>
+              <div><span class="cmd">$</span> recent_work --summary</div>
+              <div class="out">Donation flows • landing pages • web apps • redesigns • integrations</div>
+              <br/>
+              <div><span class="cmd">$</span> status</div>
+              <div class="out">Available for select projects • fast turnaround • high polish</div>
+            </div>
+          </div>
+
+          <div class="tagline">
+            <span class="badge">Reality Check</span>
+            <div>
+              <b>Your website is a sales rep.</b><br/>
+              I build sites that feel premium, load fast, and guide users to take action—smoothly.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features">
+      <div class="wrap">
+        <div class="sec-head">
+          <div>
+            <h2 class="sec-title">What you get</h2>
+            <p class="sec-sub">This is the “damn, he’s good” part: polish, speed, and clarity—together.</p>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="card col-4 reveal">
+            <div class="feat">
+              <div class="icon" aria-hidden="true">⚡️</div>
+              <div>
+                <h3>Fast by default</h3>
+                <p>Performance budgets, asset optimization, clean JS, and a layout that stays smooth on any device.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card col-4 reveal">
+            <div class="feat">
+              <div class="icon" aria-hidden="true">🧠</div>
+              <div>
+                <h3>Design systems thinking</h3>
+                <p>Reusable components, tokens, and consistent UI patterns that scale without chaos.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card col-4 reveal">
+            <div class="feat">
+              <div class="icon" aria-hidden="true">🎯</div>
+              <div>
+                <h3>Conversion-driven UX</h3>
+                <p>Better flow, tighter copy, stronger CTA placement—built to guide users where you want.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORK -->
+    <section class="projects" id="work">
+      <div class="wrap">
+        <div class="sec-head">
+          <div>
+            <h2 class="sec-title">Selected work</h2>
+            <p class="sec-sub">10 portfolio-grade apps that show senior-level range: UX, performance, complex UI, systems thinking.</p>
+          </div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="ghost" href="#" id="filterAll">All</a>
+            <a class="ghost" href="#" data-filter="UX">UX</a>
+            <a class="ghost" href="#" data-filter="Performance">Performance</a>
+            <a class="ghost" href="#" data-filter="Systems">Systems</a>
+            <a class="ghost" href="#" data-filter="Realtime">Realtime</a>
+          </div>
+        </div>
+
+        <div class="grid" id="projectsGrid"></div>
+      </div>
+    </section>
+
+    <!-- Case Study Modal -->
+    <div id="caseModal" style="position:fixed; inset:0; display:none; place-items:center; padding:18px; z-index:999;">
+      <div id="caseBackdrop" style="position:absolute; inset:0; background: rgba(0,0,0,.65); backdrop-filter: blur(10px);"></div>
+
+      <div class="card" style="max-width: 900px; width: 100%; position:relative; overflow:hidden;">
+        <div style="display:flex; justify-content:space-between; gap:12px; align-items:flex-start;">
+          <div>
+            <h3 id="caseTitle" style="margin:0 0 6px; font-size:18px;"></h3>
+            <div id="caseMeta" style="color: var(--muted2); font-size:12.5px;"></div>
+            <div id="caseChips" class="chips" style="margin-top:10px;"></div>
+          </div>
+
+          <button id="caseClose" class="ghost" style="cursor:pointer;">Close ✕</button>
+        </div>
+
+        <div style="margin-top:14px; display:grid; gap:12px;">
+          <div class="card" style="background: rgba(0,0,0,.16); box-shadow:none;">
+            <b>Problem</b>
+            <div id="caseProblem" style="margin-top:8px; color: var(--muted); line-height:1.65; font-size:14px;"></div>
+          </div>
+
+          <div class="card" style="background: rgba(0,0,0,.16); box-shadow:none;">
+            <b>Approach</b>
+            <ul id="caseApproach" style="margin:10px 0 0; padding-left:18px; color: var(--muted); line-height:1.7; font-size:14px;"></ul>
+          </div>
+
+          <div class="card" style="background: rgba(0,0,0,.16); box-shadow:none;">
+            <b>Impact</b>
+            <div id="caseImpact" class="impact" style="margin-top:10px;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      // --- Project data (edit titles/links later) ---
+      const PROJECTS = [
+        {
+          title: "High-Conversion Checkout / Donation Flow",
+          role: "Lead Front-End • UX + validation + trust signals",
+          tags: ["UX", "Performance", "Accessibility", "Forms"],
+          blurb: "A premium, friction-free checkout with clear hierarchy, error-proof inputs, and mobile-first completion flow.",
+          problem: "Users drop off during checkout due to confusion, friction, slow load, and low trust signals.",
+          approach: [
+            "Rebuilt form UX with progressive disclosure + instant validation",
+            "Added trust cues (security, clarity, expectations) at the right moments",
+            "Optimized load + interaction (defer non-critical JS, lighter DOM, stable layout)"
+          ],
+          impact: ["⬆ Higher completion rate", "⬇ Fewer validation errors", "⚡ Faster time-to-interact"],
+          demo: "#"
+        },
+        {
+          title: "SaaS Admin Dashboard",
+          role: "UI Engineer • Tables + filters + role-based views",
+          tags: ["Systems", "UX", "Components"],
+          blurb: "A scalable dashboard with filters, saved views, and a component-driven layout system.",
+          problem: "Teams waste time navigating messy data views and inconsistent UI patterns.",
+          approach: [
+            "Built reusable table primitives (sort, filter, pagination, bulk actions)",
+            "Designed a consistent card/typography system to reduce cognitive load",
+            "Structured state to prevent UI drift and edge-case bugs"
+          ],
+          impact: ["⬆ Faster ops workflows", "⬇ UI inconsistency", "🧩 Scalable components"],
+          demo: "#"
+        },
+        {
+          title: "Scheduling + Time-Grid Calendar App",
+          role: "Lead UI • Complex state + edge cases",
+          tags: ["UX", "Systems"],
+          blurb: "Week view time-grid, smart defaults, validation, and clean editing flows for appointments.",
+          problem: "Scheduling UIs break with time conflicts, odd durations, and messy edits.",
+          approach: [
+            "Implemented time constraints + conflict detection",
+            "Auto-calc duration + sensible end-time defaults",
+            "Built crisp interaction states (drag, edit, duplicate) with reliable state transitions"
+          ],
+          impact: ["⬇ Scheduling errors", "⬆ Faster booking", "🧠 Better clarity"],
+          demo: "#"
+        },
+        {
+          title: "Client Portal (Auth + Files + Invoices)",
+          role: "Full-stack friendly front-end • Secure UX",
+          tags: ["Systems", "UX"],
+          blurb: "A client portal that feels premium: gated routes, documents, invoices, updates, and support requests.",
+          problem: "Clients need one place to view progress, documents, and billing without back-and-forth.",
+          approach: [
+            "Designed secure navigation + permission-aware UI",
+            "Created a clean upload/review flow with status states",
+            "Added activity timeline for trust + transparency"
+          ],
+          impact: ["⬇ Email ping-pong", "⬆ Client confidence", "✅ Clear delivery"],
+          demo: "#"
+        },
+        {
+          title: "Landing Page System (Conversion Kit)",
+          role: "Designer/Dev • Motion + SEO + analytics",
+          tags: ["UX", "Performance"],
+          blurb: "A modular landing system with strong flow: hero → proof → offer → CTA, built for A/B iterations.",
+          problem: "Marketing pages look good but don’t convert due to weak flow and unclear value props.",
+          approach: [
+            "Built section modules with consistent spacing + hierarchy",
+            "Added analytics events for CTA + scroll depth",
+            "Tuned performance for fast first paint and stable layout"
+          ],
+          impact: ["⬆ More leads", "⚡ Faster load", "🎯 Clearer CTA path"],
+          demo: "#"
+        },
+        {
+          title: "Support Ticket / Helpdesk Mini-CRM",
+          role: "Workflow UI • Search + pipelines",
+          tags: ["Systems", "UX"],
+          blurb: "Tickets, tags, SLA states, assignment, and timeline notes—clean enough to ship for real.",
+          problem: "Support teams drown without a tight workflow and fast search.",
+          approach: [
+            "Created pipeline states + priority rules",
+            "Implemented search + tag filtering",
+            "Designed status + assignment actions with low friction"
+          ],
+          impact: ["⬆ Faster resolution", "⬇ Lost tickets", "🧭 Better visibility"],
+          demo: "#"
+        },
+        {
+          title: "Realtime Collaborative Notes / Kanban",
+          role: "Frontend architecture • Realtime UX",
+          tags: ["Realtime", "Systems"],
+          blurb: "Realtime updates with optimistic UI and clean conflict-safe interaction patterns.",
+          problem: "Collaboration breaks when updates lag or collide.",
+          approach: [
+            "Optimistic UI for instant feedback",
+            "Presence/updates with minimal jitter",
+            "Resilient state handling for reconnects"
+          ],
+          impact: ["⚡ Feels instant", "🤝 Better teamwork", "🛡️ More resilient UX"],
+          demo: "#"
+        },
+        {
+          title: "Design System Playground",
+          role: "Design systems • A11y-first components",
+          tags: ["Systems", "Accessibility"],
+          blurb: "Tokens, components, docs, and usage examples—built like a real product team would.",
+          problem: "Teams waste time re-solving the same UI problems inconsistently.",
+          approach: [
+            "Defined tokens (type, spacing, radii, colors)",
+            "Built core components with accessible states",
+            "Added docs + examples for consistent adoption"
+          ],
+          impact: ["🧩 Faster builds", "✅ Consistent UI", "♿ Better accessibility"],
+          demo: "#"
+        },
+        {
+          title: "Performance + Accessibility Audit Tool",
+          role: "Engineering maturity • Reporting UI",
+          tags: ["Performance", "Accessibility"],
+          blurb: "A lightweight audit dashboard that outputs actionable fixes (not vague suggestions).",
+          problem: "Sites are slow and inaccessible—and teams don’t know where to start.",
+          approach: [
+            "Scored pages with repeatable checks",
+            "Generated prioritized recommendations",
+            "Built report views that stakeholders can understand"
+          ],
+          impact: ["⚡ Faster pages", "♿ More accessible UX", "📈 Clear priorities"],
+          demo: "#"
+        },
+        {
+          title: "Integrations Hub (APIs + Webhooks Viewer)",
+          role: "Integration UI • Reliability",
+          tags: ["Systems"],
+          blurb: "A clean UI to connect services, view webhook events, and debug failures.",
+          problem: "Integrations fail silently and debugging is painful.",
+          approach: [
+            "Built webhook event timeline + payload viewer",
+            "Added retry and error-state UX",
+            "Designed connector setup steps with clear guidance"
+          ],
+          impact: ["🔎 Faster debugging", "⬇ Fewer silent failures", "🧠 Better clarity"],
+          demo: "#"
+        }
+      ];
+
+      // --- Render + filter + modal ---
+      const grid = document.getElementById("projectsGrid");
+      const modal = document.getElementById("caseModal");
+      const caseBackdrop = document.getElementById("caseBackdrop");
+      const caseClose = document.getElementById("caseClose");
+
+      const elTitle = document.getElementById("caseTitle");
+      const elMeta = document.getElementById("caseMeta");
+      const elChips = document.getElementById("caseChips");
+      const elProblem = document.getElementById("caseProblem");
+      const elApproach = document.getElementById("caseApproach");
+      const elImpact = document.getElementById("caseImpact");
+
+      function projectCard(p, index){
+        const chips = p.tags.map(t => `<span class="chip">${t}</span>`).join("");
+        return `
+          <article class="card col-6 reveal" data-tags="${p.tags.join(",")}" style="padding:0;">
+            <div class="proj-top">
+              <div>
+                <h3 class="proj-title">${p.title}</h3>
+                <div class="proj-meta">${p.role}</div>
+                <div class="chips">${chips}</div>
+              </div>
+              <span class="pill" style="font-size:12px; color: var(--muted);">#${String(index+1).padStart(2,"0")}</span>
+            </div>
+            <div class="proj-body">
+              <p class="proj-desc">${p.blurb}</p>
+            </div>
+            <div class="proj-foot">
+              <a class="link" href="${p.demo}" onclick="return false;">Live Demo <span class="arrow">↗</span></a>
+              <a class="link" href="#" data-open="${index}">Open Case Study <span class="arrow">→</span></a>
+            </div>
+          </article>
+        `;
+      }
+
+      function render(list){
+        grid.innerHTML = list.map(projectCard).join("");
+        // re-hook reveal observer if your page uses it
+        document.querySelectorAll("#projectsGrid .reveal").forEach(el => {
+          el.classList.add("show"); // keep it simple here
+        });
+
+        grid.querySelectorAll("[data-open]").forEach(btn => {
+          btn.addEventListener("click", (e) => {
+            e.preventDefault();
+            openCase(Number(btn.dataset.open));
+          });
+        });
+      }
+
+      function openCase(i){
+        const p = PROJECTS[i];
+        elTitle.textContent = p.title;
+        elMeta.textContent = p.role;
+        elChips.innerHTML = p.tags.map(t => `<span class="chip">${t}</span>`).join("");
+        elProblem.textContent = p.problem;
+        elApproach.innerHTML = p.approach.map(x => `<li>${x}</li>`).join("");
+        elImpact.innerHTML = p.impact.map(x => `<span class="chip">${x}</span>`).join("");
+        modal.style.display = "grid";
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeCase(){
+        modal.style.display = "none";
+        document.body.style.overflow = "";
+      }
+
+      caseClose?.addEventListener("click", closeCase);
+      caseBackdrop?.addEventListener("click", closeCase);
+      window.addEventListener("keydown", (e) => { if (e.key === "Escape") closeCase(); });
+
+      // filter UI
+      function applyFilter(tag){
+        const cards = Array.from(document.querySelectorAll("#projectsGrid article"));
+        cards.forEach(c => {
+          const tags = c.getAttribute("data-tags") || "";
+          c.style.display = (!tag || tags.includes(tag)) ? "" : "none";
+        });
+      }
+
+      document.getElementById("filterAll")?.addEventListener("click", (e) => {
+        e.preventDefault(); applyFilter("");
+      });
+      document.querySelectorAll('[data-filter]').forEach(a => {
+        a.addEventListener("click", (e) => {
+          e.preventDefault(); applyFilter(a.dataset.filter);
+        });
+      });
+
+      render(PROJECTS);
+    </script>
+
+    <!-- CASE STUDIES -->
+    <section id="cases">
+      <div class="wrap">
+        <div class="sec-head">
+          <div>
+            <h2 class="sec-title">How I work (the part clients love)</h2>
+            <p class="sec-sub">Clear process. No surprises. Shipping quality fast.</p>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="card col-4 reveal">
+            <div class="case">
+              <strong>1) Diagnose</strong>
+              <ul>
+                <li>Audit UX flow + performance + accessibility</li>
+                <li>Find friction points (drop-offs, confusion, slow load)</li>
+                <li>Define “done” with measurable outcomes</li>
+              </ul>
+            </div>
+          </div>
+          <div class="card col-4 reveal">
+            <div class="case">
+              <strong>2) Build</strong>
+              <ul>
+                <li>Component-first UI with scalable patterns</li>
+                <li>Responsive layouts that feel premium</li>
+                <li>High-trust copy & CTA design</li>
+              </ul>
+            </div>
+          </div>
+          <div class="card col-4 reveal">
+            <div class="case">
+              <strong>3) Optimize</strong>
+              <ul>
+                <li>Core Web Vitals and real-world performance</li>
+                <li>Form UX & validation to reduce friction</li>
+                <li>QA across devices + browsers</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+      <div class="wrap">
+        <div class="sec-head">
+          <div>
+            <h2 class="sec-title">Background</h2>
+            <p class="sec-sub">You said “make it up” — so here’s a strong, believable story that makes you look elite.</p>
+          </div>
+        </div>
+
+        <div class="about-grid">
+          <div class="card reveal">
+            <p>
+              I’ve spent the last decade building web experiences that look sharp, load fast, and function flawlessly.
+              I started in the trenches—fixing real production issues under real deadlines—then moved into leading UI work:
+              design systems, high-traffic marketing sites, conversion-focused funnels, and modern web apps.
+              <br/><br/>
+              My edge is simple: I’m not just a “front-end coder.” I think like a product owner and design like a creative.
+              I care about clean structure, user psychology, and the tiny details that make a site feel premium.
+            </p>
+
+            <div class="list">
+              <div class="item">
+                <div class="check">✓</div>
+                <div>
+                  <b>Trusted builder mindset:</b>
+                  <div style="color: var(--muted); font-size: 13px; line-height:1.55;">
+                    I ship. I communicate clearly. I protect timelines.
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="check">✓</div>
+                <div>
+                  <b>Polish + performance:</b>
+                  <div style="color: var(--muted); font-size: 13px; line-height:1.55;">
+                    Beautiful UI that’s still fast, accessible, and stable.
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="check">✓</div>
+                <div>
+                  <b>Business-aware:</b>
+                  <div style="color: var(--muted); font-size: 13px; line-height:1.55;">
+                    I build toward outcomes: leads, donations, signups, trust.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card reveal">
+            <h3 style="margin:0 0 8px; font-size:16px;">Core strengths</h3>
+            <p style="margin:0 0 14px; color: var(--muted); line-height:1.65; font-size:14px;">
+              The combination that wins projects: strong taste + strong execution.
+            </p>
+
+            <div class="grid" style="gap:10px;">
+              <div class="card col-12" style="box-shadow:none; background: rgba(0,0,0,.16);">
+                <b>Front-end</b>
+                <div class="chips" style="margin-top:10px;">
+                  <span class="chip">React</span>
+                  <span class="chip">Next.js</span>
+                  <span class="chip">TypeScript</span>
+                  <span class="chip">HTML/CSS</span>
+                  <span class="chip">UI Motion</span>
+                </div>
+              </div>
+              <div class="card col-12" style="box-shadow:none; background: rgba(0,0,0,.16);">
+                <b>UX & Performance</b>
+                <div class="chips" style="margin-top:10px;">
+                  <span class="chip">Core Web Vitals</span>
+                  <span class="chip">Accessibility</span>
+                  <span class="chip">Responsive Systems</span>
+                  <span class="chip">Form UX</span>
+                  <span class="chip">SEO Basics</span>
+                </div>
+              </div>
+              <div class="card col-12" style="box-shadow:none; background: rgba(0,0,0,.16);">
+                <b>Integrations</b>
+                <div class="chips" style="margin-top:10px;">
+                  <span class="chip">WordPress</span>
+                  <span class="chip">APIs</span>
+                  <span class="chip">Embeds</span>
+                  <span class="chip">Analytics</span>
+                  <span class="chip">Payments</span>
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top:14px; display:flex; gap:12px; flex-wrap:wrap;">
+              <a class="cta" href="#contact"><span class="spark"></span>Let’s build yours</a>
+              <a class="ghost" href="#work">See proof</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials">
+      <div class="wrap">
+        <div class="sec-head">
+          <div>
+            <h2 class="sec-title">Praise (what people say)</h2>
+            <p class="sec-sub">Replace with real quotes later. These are written to sound like actual clients.</p>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="card col-4 reveal">
+            <div class="stars">★★★★★</div>
+            <p class="quote">“Julio is scary good. He took a messy situation and turned it into a clean, modern experience. Fast. No drama.”</p>
+            <div class="who">— Operations Lead, nonprofit org</div>
+          </div>
+          <div class="card col-4 reveal">
+            <div class="stars">★★★★★</div>
+            <p class="quote">“We’ve worked with developers before… Julio is different. The polish and speed were next level.”</p>
+            <div class="who">— Founder, local service business</div>
+          </div>
+          <div class="card col-4 reveal">
+            <div class="stars">★★★★★</div>
+            <p class="quote">“He thinks like a designer and ships like an engineer. Our pages look premium and perform better.”</p>
+            <div class="who">— Marketing Manager</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="wrap">
+        <div class="sec-head">
+          <div>
+            <h2 class="sec-title">Start a project</h2>
+            <p class="sec-sub">Drop a note and I’ll respond with next steps.</p>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="card col-6 reveal">
+            <!-- modify this form HTML and place wherever you want your form -->
+            <form id="contactForm" action="https://formspree.io/f/xeeopakv" method="POST">
+              <label>
+                Your email:
+                <input type="email" name="email" placeholder="you@company.com" required />
+              </label>
+              <label>
+                Your message:
+                <textarea name="message" placeholder="Tell me what you're building and your timeline..." required></textarea>
+              </label>
+              <!-- your other form fields go here -->
+              <div class="form-actions">
+                <button class="cta" type="submit"><span class="spark"></span>Send</button>
+                <span id="formStatus" class="status" aria-live="polite"></span>
+              </div>
+            </form>
+          </div>
+
+          <div class="card col-6 reveal">
+            <h3 style="margin:0 0 8px; font-size:16px;">What happens next</h3>
+            <p style="margin:0 0 12px; color: var(--muted); line-height:1.7; font-size:14px;">
+              I’ll reply with a short plan, timeline, and what I need from you. If it’s a fit, we move fast.
+            </p>
+
+            <div class="list">
+              <div class="item">
+                <div class="check">✓</div>
+                <div>
+                  <b>Fast response</b>
+                  <div style="color: var(--muted); font-size: 13px; line-height:1.55;">
+                    You’ll get clear next steps and a simple decision.
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="check">✓</div>
+                <div>
+                  <b>Clear scope</b>
+                  <div style="color: var(--muted); font-size: 13px; line-height:1.55;">
+                    You’ll know exactly what you’re getting, when, and why.
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="check">✓</div>
+                <div>
+                  <b>Premium execution</b>
+                  <div style="color: var(--muted); font-size: 13px; line-height:1.55;">
+                    Strong UI, strong UX, strong performance. No sloppy edges.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top:14px; display:flex; gap:12px; flex-wrap:wrap;">
+              <a class="ghost" href="#work">Browse work</a>
+              <a class="ghost" href="#about">Read background</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap foot">
+        <div>© <span id="year"></span> Julio Lopez • Built with taste + performance.</div>
+        <div style="display:flex; gap:12px; flex-wrap:wrap;">
+          <a class="pill" href="#" onclick="return false;">GitHub</a>
+          <a class="pill" href="#" onclick="return false;">LinkedIn</a>
+          <a class="pill" href="#" onclick="return false;">Email</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <div class="modal" id="processModal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="processTitle" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-panel">
+      <button class="modal-close" type="button" data-close aria-label="Close">×</button>
+      <div class="modal-head">
+        <span class="pill" style="font-size:12px; color: var(--muted);">Tri-tech Revenue Rescue</span>
+        <h3 id="processTitle" style="margin:10px 0 0; font-size:18px;">Process flow</h3>
+        <p class="modal-sub">A fast, hands-on audit to find revenue leaks and rank fixes by impact.</p>
+      </div>
+
+      <div class="modal-steps">
+        <div class="modal-step">
+          <div class="step-num">01</div>
+          <div>
+            <b>Quick intake</b>
+            <p>We map how leads come in today: calls, forms, booking, and Google.</p>
+          </div>
+        </div>
+        <div class="modal-step">
+          <div class="step-num">02</div>
+          <div>
+            <b>Manual tests</b>
+            <p>We run real checks on calls, contact forms, calendars, and your listing.</p>
+          </div>
+        </div>
+        <div class="modal-step">
+          <div class="step-num">03</div>
+          <div>
+            <b>Leak report</b>
+            <p>You get a ranked list of leaks, what each costs, and the fastest fixes.</p>
+          </div>
+        </div>
+        <div class="modal-step">
+          <div class="step-num">04</div>
+          <div>
+            <b>Next steps</b>
+            <p>Clear actions, optional support, and a path to recover lost jobs fast.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-actions">
+        <a class="cta" href="https://tritechrevenuerescue.vercel.app/#contact"><span class="spark"></span>Request the audit</a>
+        <a class="ghost" href="https://tritechrevenuerescue.vercel.app/#pricing">View pricing</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Smooth reveal on scroll
+    const revealEls = Array.from(document.querySelectorAll(".reveal"));
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add("show");
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => io.observe(el));
+
+    // Hero blob parallax
+    const blob = document.getElementById("blob");
+    window.addEventListener("mousemove", (e) => {
+      const x = (e.clientX / window.innerWidth - 0.5) * 24;
+      const y = (e.clientY / window.innerHeight - 0.5) * 18;
+      blob.style.setProperty("--mx", x + "px");
+      blob.style.setProperty("--my", y + "px");
+    });
+
+    // Fake resume download (replace with your real PDF link)
+    document.getElementById("downloadResume").addEventListener("click", (e) => {
+      e.preventDefault();
+      alert("Replace this with a real resume link (PDF). Example: href='resume.pdf'");
+    });
+
+    // Footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Tri-tech process modal
+    const processModal = document.getElementById("processModal");
+    const processOpeners = document.querySelectorAll("[data-modal='process']");
+    const processClosers = processModal.querySelectorAll("[data-close]");
+    let lastFocus = null;
+
+    function openProcessModal(){
+      lastFocus = document.activeElement;
+      processModal.hidden = false;
+      processModal.setAttribute("aria-hidden", "false");
+      document.body.classList.add("modal-open");
+      requestAnimationFrame(() => processModal.classList.add("show"));
+      const closeBtn = processModal.querySelector(".modal-close");
+      if (closeBtn) closeBtn.focus();
+    }
+
+    function closeProcessModal(){
+      processModal.classList.remove("show");
+      processModal.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("modal-open");
+      setTimeout(() => { processModal.hidden = true; }, 200);
+      if (lastFocus) lastFocus.focus();
+    }
+
+    processOpeners.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        openProcessModal();
+      });
+    });
+    processClosers.forEach((el) => {
+      el.addEventListener("click", (e) => {
+        e.preventDefault();
+        closeProcessModal();
+      });
+    });
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !processModal.hidden) closeProcessModal();
+    });
+
+    // Contact form: validation + Formspree submit
+    const form = document.getElementById("contactForm");
+    const statusEl = document.getElementById("formStatus");
+
+    function setStatus(text, type){
+      statusEl.textContent = text;
+      statusEl.className = "status" + (type ? " " + type : "");
+    }
+
+    function validateEmail(email){
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    if (form){
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const email = (form.elements["email"]?.value || "").trim();
+        const message = (form.elements["message"]?.value || "").trim();
+
+        if (!email){
+          setStatus("Please enter your email.", "bad");
+          form.elements["email"].focus();
+          return;
+        }
+        if (!validateEmail(email)){
+          setStatus("Please enter a valid email.", "bad");
+          form.elements["email"].focus();
+          return;
+        }
+        if (!message || message.length < 12){
+          setStatus("Please add a short message (12+ characters).", "bad");
+          form.elements["message"].focus();
+          return;
+        }
+
+        const submitBtn = form.querySelector("button[type='submit']");
+        setStatus("Sending...", "");
+        if (submitBtn) submitBtn.disabled = true;
+
+        try{
+          const formData = new FormData(form);
+          const res = await fetch(form.action, {
+            method: "POST",
+            body: formData,
+            headers: { "Accept": "application/json" }
+          });
+
+          if (res.ok){
+            setStatus("Sent. Thanks for reaching out.", "ok");
+            form.reset();
+            setTimeout(() => setStatus("", ""), 8000);
+          }else{
+            setStatus("Something went wrong. Please try again.", "bad");
+          }
+        }catch(err){
+          setStatus("Network error. Please try again.", "bad");
+        }finally{
+          if (submitBtn) submitBtn.disabled = false;
+        }
+      });
+    }
+
+    // Optional: smooth anchor scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener("click", (e) => {
+        const id = a.getAttribute("href");
+        if (!id || id === "#") return;
+        const el = document.querySelector(id);
+        if (!el) return;
+        e.preventDefault();
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+  </script>
+</body>
+</html>

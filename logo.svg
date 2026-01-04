@@ -1,0 +1,25 @@
+<svg width="220" height="220" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#42f5d4" />
+      <stop offset="55%" stop-color="#ff4fd8" />
+      <stop offset="100%" stop-color="#8b5cff" />
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(45 45) rotate(45) scale(140)">
+      <stop offset="0%" stop-color="#42f5d4" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#0b0f1c" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect x="10" y="10" width="180" height="180" rx="38" fill="#0b0f1c" />
+  <rect x="10" y="10" width="180" height="180" rx="38" fill="url(#glow)" />
+  <rect x="14" y="14" width="172" height="172" rx="34" stroke="url(#g)" stroke-width="6" />
+
+  <!-- Monogram JL -->
+  <path d="M74 60V122C74 142 86 152 108 152H126" stroke="#eaf0ff" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M136 60V152H164" stroke="#eaf0ff" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" />
+
+  <!-- Accent circuit dots -->
+  <circle cx="52" cy="76" r="4.5" fill="#42f5d4" />
+  <circle cx="158" cy="92" r="3.5" fill="#ff4fd8" />
+  <circle cx="60" cy="154" r="3.5" fill="#8b5cff" />
+</svg>
