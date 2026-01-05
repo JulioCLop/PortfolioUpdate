@@ -942,7 +942,7 @@
             "Optimized load + interaction (defer non-critical JS, lighter DOM, stable layout)"
           ],
           impact: ["⬆ Higher completion rate", "⬇ Fewer validation errors", "⚡ Faster time-to-interact"],
-          demo: "#"
+          demo: "https://payment-donate-flow.vercel.app"
         },
         {
           title: "SaaS Admin Dashboard",
@@ -1087,6 +1087,10 @@
 
       function projectCard(p, index){
         const chips = p.tags.map(t => `<span class="chip">${t}</span>`).join("");
+        const hasDemo = p.demo && p.demo !== "#";
+        const demoAttrs = hasDemo
+          ? `href="${p.demo}" target="_blank" rel="noopener"`
+          : `href="#" aria-disabled="true" onclick="return false;"`;
         return `
           <article class="card col-6 reveal" data-tags="${p.tags.join(",")}" style="padding:0;">
             <div class="proj-top">
@@ -1101,7 +1105,7 @@
               <p class="proj-desc">${p.blurb}</p>
             </div>
             <div class="proj-foot">
-              <a class="link" href="${p.demo}" onclick="return false;">Live Demo <span class="arrow">↗</span></a>
+              <a class="link" ${demoAttrs}>Live Demo <span class="arrow">↗</span></a>
               <a class="link" href="#" data-open="${index}">Open Case Study <span class="arrow">→</span></a>
             </div>
           </article>
