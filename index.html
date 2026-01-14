@@ -773,7 +773,7 @@
           <div class="hero-actions">
             <a class="cta" href="#contact"><span class="spark"></span>Start a Project</a>
             <a class="ghost" href="#work">View My Work</a>
-            <a class="ghost" href="#" id="downloadResume">Download Resume</a>
+            <a class="ghost" href="Julio-Lopez-Resume.pdf" download="Julio-Lopez-Resume.pdf">Download Resume</a>
           </div>
 
           <div class="stats" aria-label="Highlights">
@@ -1496,12 +1496,6 @@
       const y = (e.clientY / window.innerHeight - 0.5) * 18;
       blob.style.setProperty("--mx", x + "px");
       blob.style.setProperty("--my", y + "px");
-    });
-
-    // Fake resume download (replace with your real PDF link)
-    document.getElementById("downloadResume").addEventListener("click", (e) => {
-      e.preventDefault();
-      alert("Replace this with a real resume link (PDF). Example: href='resume.pdf'");
     });
 
     // Footer year
