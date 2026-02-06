@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Julio Lopez — Front-End Developer</title>
-  <meta name="description" content="High-tech portfolio of Julio Lopez, a front-end developer and Tri-tech founder. Case studies, work, and contact form." />
+  <title>Joey Lopez — Front-End Developer</title>
+  <meta name="description" content="High-tech portfolio of Joey Lopez, a front-end developer and Tri-tech founder. Case studies, work, and contact form." />
   <meta name="robots" content="index,follow" />
-  <meta name="author" content="Julio Lopez" />
+  <meta name="author" content="Joey Lopez" />
   <meta name="theme-color" content="#070A12" />
   <link rel="canonical" href="http://127.0.0.1:5500/index.html" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
@@ -14,16 +14,16 @@
   <link rel="shortcut icon" href="favicon.svg" />
   <link rel="mask-icon" href="favicon.svg" color="#42f5d4" />
 
-  <meta property="og:title" content="Julio Lopez — Front-End Developer" />
-  <meta property="og:description" content="High-tech portfolio of Julio Lopez, a front-end developer and Tri-tech founder. Case studies, work, and contact form." />
+  <meta property="og:title" content="Joey Lopez — Front-End Developer" />
+  <meta property="og:description" content="High-tech portfolio of Joey Lopez, a front-end developer and Tri-tech founder. Case studies, work, and contact form." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="http://127.0.0.1:5500/index.html" />
   <meta property="og:image" content="logo.svg" />
-  <meta property="og:site_name" content="Julio Lopez Portfolio" />
+  <meta property="og:site_name" content="Joey Lopez Portfolio" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Julio Lopez — Front-End Developer" />
-  <meta name="twitter:description" content="High-tech portfolio of Julio Lopez, a front-end developer and Tri-tech founder. Case studies, work, and contact form." />
+  <meta name="twitter:title" content="Joey Lopez — Front-End Developer" />
+  <meta name="twitter:description" content="High-tech portfolio of Joey Lopez, a front-end developer and Tri-tech founder. Case studies, work, and contact form." />
   <meta name="twitter:image" content="logo.svg" />
   <style>
     :root{
@@ -32,28 +32,28 @@
       --card: rgba(255,255,255,.06);
       --card2: rgba(255,255,255,.09);
       --border: rgba(255,255,255,.14);
-
       --text:#eaf0ff;
       --muted: rgba(234,240,255,.72);
       --muted2: rgba(234,240,255,.55);
-
       --aqua:#42f5d4;
       --mag:#a5f3fc;
       --vio:#60a5fa;
       --gold:#7dd3fc;
       --good:#6ee7b7;
       --bad:#f87171;
-
       --shadow: 0 24px 70px rgba(0,0,0,.55);
       --shadow2: 0 18px 40px rgba(0,0,0,.55);
       --radius: 18px;
       --radius2: 26px;
-
       --max: 1180px;
     }
 
     *{ box-sizing:border-box }
-    html,body{ height:100%; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    html,body{ 
+      height:100%; 
+      -webkit-font-smoothing: antialiased; 
+      -moz-osx-font-smoothing: grayscale; 
+    }
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
@@ -109,8 +109,12 @@
       gap: 14px;
     }
     .brand{
-      display:flex; align-items:center; gap:12px;
-      font-weight:800; letter-spacing:.3px;
+      display:flex; 
+      align-items:center; 
+      gap:12px;
+      font-weight:800; 
+      letter-spacing:.3px;
+      margin-left: 50px;
     }
     .brand-logo{
       width: 34px;
@@ -178,6 +182,7 @@
     }
     @media (max-width: 980px){
       .hero-grid{ grid-template-columns: 1fr; }
+      
     }
 
     .panel{
@@ -735,6 +740,101 @@
 
     /* ========== RESPONSIVE DESIGN ========== */
 
+    /* Hamburger Menu (hidden on desktop) */
+    .hamburger{
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+      padding: 10px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      transition: background .3s ease, border-color .3s ease, transform .3s ease;
+      position: relative;
+      overflow: hidden;
+      width: 44px;
+      height: 44px;
+      flex-shrink: 0;
+      z-index: 1001;
+      margin-right: 10px;
+    }
+
+    .hamburger::before{
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, rgba(66,245,212,.15), transparent 70%);
+      opacity: 0;
+      transition: opacity .3s ease;
+    }
+
+    .hamburger span{
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: transform .3s cubic-bezier(0.68, -0.55, 0.265, 1.55), opacity .3s ease, background .3s ease;
+      transform-origin: center;
+    }
+
+    .hamburger:hover{
+      background: rgba(255,255,255,.08);
+      border-color: rgba(255,255,255,.22);
+      transform: scale(1.05);
+    }
+
+    .hamburger:active{
+      transform: scale(0.95);
+    }
+
+    /* Active state - X with glow */
+    .hamburger.active{
+      background: rgba(66,245,212,.1);
+      border-color: rgba(66,245,212,.4);
+    }
+
+    .hamburger.active::before{
+      opacity: 1;
+    }
+
+    .hamburger.active span{
+      background: var(--aqua);
+    }
+
+    .hamburger.active span:nth-child(1){
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .hamburger.active span:nth-child(2){
+      opacity: 0;
+      transform: scaleX(0);
+    }
+
+    .hamburger.active span:nth-child(3){
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* Mobile overlay */
+    .nav-overlay{
+      position: fixed;
+      inset: 0;
+      background: rgba(7,10,18,.6);
+      backdrop-filter: blur(4px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 98;
+    }
+
+    .nav-overlay.active{
+      opacity: 1;
+      pointer-events: all;
+    }
+
     /* Tablet (max-width: 980px) */
     @media (max-width: 980px){
       .col-4,.col-6,.col-8{ grid-column: span 12; }
@@ -744,27 +844,99 @@
         gap: 18px;
       }
 
-      .nav-inner{
-        flex-wrap: wrap;
-        gap: 12px;
-      }
-
-      .brand{
-        flex-wrap: wrap;
-        gap: 8px;
-      }
-
-      .nav-links{
-        width: 100%;
-        justify-content: center;
-      }
-
       .stats{
         grid-template-columns: 1fr;
       }
 
       .grid{
         grid-template-columns: repeat(12, 1fr);
+      }
+
+      .wrap{
+        padding: 0 16px;
+      }
+
+      .nav-inner{
+        padding: 14px 0;
+        flex-wrap: nowrap;
+      }
+
+      .brand{
+        flex: 0 1 auto;
+        gap: 10px;
+      }
+
+      .brand span:not(.pill){
+        font-size: 15px;
+      }
+
+      .pill{
+        display: none;
+      }
+
+      .hamburger{
+        display: flex !important;
+        z-index: 100;
+        flex-shrink: 0;
+        width: 44px;
+        height: 44px;
+        margin-left: auto;
+      }
+
+      .hamburger.active{
+        position: fixed;
+        top: 28px;
+        right: 32px;
+        z-index: 1000;
+      }
+
+      .nav-links{
+        position: fixed;
+        top: 16px;
+        left: 50%;
+        right: auto;
+        width: min(94vw, 640px);
+        height: auto;
+        max-height: calc(100vh - 32px);
+        background: linear-gradient(180deg, rgba(7,10,18,.98), rgba(7,10,18,.92));
+        backdrop-filter: blur(18px);
+        flex-direction: column;
+        gap: 16px;
+        padding: 64px 22px 20px;
+        border: 1px solid rgba(255,255,255,.12);
+        border-radius: 22px;
+        box-shadow: 0 30px 70px rgba(0,0,0,.6);
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        transform: translate(-50%, -12px) scale(.98);
+        opacity: 0;
+        pointer-events: none;
+        z-index: 99;
+        align-items: stretch;
+        overflow-y: auto;
+      }
+
+      .nav-links.active{
+        transform: translate(-50%, 0) scale(1);
+        opacity: 1;
+        pointer-events: all;
+      }
+
+      .nav-links a{
+        width: 100%;
+        text-align: left;
+        padding: 14px 16px;
+        border-radius: 14px;
+        font-size: 15px;
+        border-color: rgba(255,255,255,.14);
+        background: rgba(255,255,255,.04);
+      }
+
+      .nav-links .cta{
+        width: 50%;
+        justify-content: center;
+        padding: 12px 18px;
+        font-size: 14px;
+        margin: 0 auto;
       }
     }
 
@@ -775,35 +947,17 @@
         --radius2: 20px;
       }
 
-      .wrap{
-        padding: 0 16px;
-      }
-
-      .nav{
-        position: relative;
-      }
-
-      .nav-inner{
-        padding: 12px 0;
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .brand{
-        width: 100%;
-        justify-content: space-between;
-      }
-
       .nav-links{
-        width: 100%;
-        flex-direction: column;
-        gap: 8px;
+        width: min(94vw, 600px);
+        padding: 60px 20px 18px;
+        border-radius: 20px;
       }
 
-      .nav-links a{
-        width: 100%;
-        text-align: center;
-        padding: 12px;
+      .nav-links .cta{
+        width: 50%;
+        padding: 10px 20px;
+        font-size: 12px;
+        margin: 0 auto;
       }
 
       h1{
@@ -937,19 +1091,40 @@
         font-size: clamp(24px, 9vw, 36px);
       }
 
+      .nav-links{
+        width: min(94vw, 520px);
+        padding: 60px 18px 16px;
+        border-radius: 18px;
+      }
+
+      .nav-links a{
+        padding: 12px 14px;
+        font-size: 14px;
+      }
+
+      .nav-links .cta{
+        width: 50%;
+        padding: 10px 18px;
+        font-size: 11px;
+        margin: 0 auto;
+      }
+
       .brand{
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction: row;
+        align-items: center;
         gap: 8px;
+        min-width: 0;
+        flex: 1;
+      }
+
+      .brand-logo{
+        width: 30px;
+        height: 30px;
       }
 
       .brand span{
         font-size: 14px;
-      }
-
-      .pill{
-        font-size: 11px;
-        padding: 6px 10px;
+        white-space: nowrap;
       }
 
       .hero-left,
@@ -1051,6 +1226,53 @@
 
       .nav-inner{
         padding: 10px 0;
+        gap: 8px;
+      }
+
+      .brand{
+        gap: 6px;
+      }
+
+      .brand-logo{
+        width: 28px;
+        height: 28px;
+      }
+
+      .brand span{
+        font-size: 13px;
+      }
+
+      .hamburger{
+        width: 36px;
+        height: 36px;
+        padding: 8px;
+        gap: 4px;
+      }
+
+      .hamburger span{
+        width: 16px;
+        height: 2px;
+      }
+
+      .hamburger.active span:nth-child(1){
+        transform: translateY(6px) rotate(45deg);
+      }
+
+      .hamburger.active span:nth-child(3){
+        transform: translateY(-6px) rotate(-45deg);
+      }
+
+      .nav-links{
+        width: min(94vw, 480px);
+        padding: 60px 16px 14px;
+        border-radius: 16px;
+      }
+
+      .nav-links .cta{
+        width: 50%;
+        padding: 8px 16px;
+        font-size: 10px;
+        margin: 0 auto;
       }
 
       .hero{
@@ -1078,14 +1300,20 @@
   <header class="nav">
     <div class="wrap nav-inner">
       <div class="brand">
-        <img class="brand-logo" src="logo.svg" alt="Julio Lopez logo" />
-        <span>Julio Lopez</span>
-        <span class="pill" style="padding:8px 10px; font-size:12px; color: var(--muted);">
+        <img class="brand-logo" src="logo.svg" alt="Joey Lopez logo" />
+        <span>Joey Lopez</span>
+        <span class="pill" style="padding:6px 14px; font-size:11px; color: var(--muted); letter-spacing:.06em; font-weight:600; margin-left:15px;">
            Front-End Developer
         </span>
       </div>
 
-      <nav class="nav-links" aria-label="Primary">
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav-links" id="navLinks" aria-label="Primary">
         <a href="#work">Work</a>
         <a href="#cases">Case Studies</a>
         <a href="#about">Background</a>
@@ -1093,6 +1321,7 @@
         <a href="#contact" class="cta"><span class="spark"></span>Hire Me</a>
       </nav>
     </div>
+    <div class="nav-overlay" id="navOverlay"></div>
   </header>
 
   <main>
@@ -1110,7 +1339,7 @@
           </h1>
 
           <p class="sub">
-            I’m <b>Julio Lopez</b>, a front-end developer focused on building fast, modern web experiences.
+            I’m <b>Joey Lopez</b>, a front-end developer focused on building fast, modern web experiences.
             I blend clean UI, performance, and thoughtful UX so your site looks premium and drives action.
             Founder at <a href="http://127.0.0.1:5500/index.html">Tri-tech</a>, an umbrella brand for multiple tech ventures spanning product UX, web systems, and digital tools.
           </p>
@@ -1118,7 +1347,7 @@
           <div class="hero-actions">
             <a class="cta" href="#contact"><span class="spark"></span>Start a Project</a>
             <a class="ghost" href="#work">View My Work</a>
-            <a class="ghost" href="Julio-Lopez-Resume.pdf" download="Julio-Lopez-Resume.pdf">Download Resume</a>
+            <a class="ghost" href="Joey-Lopez-Resume.pdf" download="Joey-Lopez-Resume.pdf">Download Resume</a>
           </div>
 
           <div class="stats" aria-label="Highlights">
@@ -1143,7 +1372,7 @@
               <div class="dots" aria-hidden="true">
                 <span class="r"></span><span class="y"></span><span class="g"></span>
               </div>
-              <div>julio@portfolio — ~/shipping-quality</div>
+              <div>joey@portfolio — ~/shipping-quality</div>
             </div>
             <div class="term-body" id="terminalText">
               <div><span class="cmd">$</span> whoami</div>
@@ -1672,12 +1901,12 @@
         <div class="grid">
           <div class="card col-4 reveal">
             <div class="stars">★★★★★</div>
-            <p class="quote">“Julio is scary good. He took a messy situation and turned it into a clean, modern experience. Fast. No drama.”</p>
+            <p class="quote">“Joey is scary good. He took a messy situation and turned it into a clean, modern experience. Fast. No drama.”</p>
             <div class="who">— Operations Lead, nonprofit org</div>
           </div>
           <div class="card col-4 reveal">
             <div class="stars">★★★★★</div>
-            <p class="quote">“We’ve worked with developers before… Julio is different. The polish and speed were next level.”</p>
+            <p class="quote">“We’ve worked with developers before… Joey is different. The polish and speed were next level.”</p>
             <div class="who">— Founder, local service business</div>
           </div>
           <div class="card col-4 reveal">
@@ -1766,11 +1995,10 @@
 
     <footer>
       <div class="wrap foot">
-        <div>© <span id="year"></span> Julio Lopez • Built with taste + performance.</div>
+        <div>© <span id="year"></span> Joey Lopez • Built with taste + performance.</div>
         <div style="display:flex; gap:12px; flex-wrap:wrap;">
-          <a class="pill" href="#" onclick="return false;">GitHub</a>
-          <a class="pill" href="#" onclick="return false;">LinkedIn</a>
-          <a class="pill" href="#" onclick="return false;">Email</a>
+          <a class="pill" href="https://linkedin.com/in/juliolopezdev" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a class="pill" href="mailto:joeyclopez88@gmail.com">Email</a>
         </div>
       </div>
     </footer>
@@ -1959,6 +2187,45 @@
         e.preventDefault();
         el.scrollIntoView({ behavior: "smooth", block: "start" });
       });
+    });
+
+    // Mobile Navigation Toggle
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("navLinks");
+    const navOverlay = document.getElementById("navOverlay");
+
+    function toggleMobileNav() {
+      const isOpen = navLinks.classList.contains("active");
+      hamburger.classList.toggle("active");
+      navLinks.classList.toggle("active");
+      navOverlay.classList.toggle("active");
+      hamburger.setAttribute("aria-expanded", !isOpen);
+      document.body.style.overflow = isOpen ? "" : "hidden";
+    }
+
+    function closeMobileNav() {
+      hamburger.classList.remove("active");
+      navLinks.classList.remove("active");
+      navOverlay.classList.remove("active");
+      hamburger.setAttribute("aria-expanded", "false");
+      document.body.style.overflow = "";
+    }
+
+    hamburger?.addEventListener("click", toggleMobileNav);
+    navOverlay?.addEventListener("click", closeMobileNav);
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        if (window.innerWidth <= 980) closeMobileNav();
+      });
+    });
+
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && navLinks.classList.contains("active")) closeMobileNav();
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 980 && navLinks.classList.contains("active")) closeMobileNav();
     });
   </script>
 </body>
